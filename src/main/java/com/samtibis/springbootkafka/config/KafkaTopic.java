@@ -16,4 +16,12 @@ public class KafkaTopic {
                 .build();
     }
 
+    @Bean
+    public NewTopic topicForJson() {
+        return TopicBuilder.name("topic-json")
+                //.partitions(3)
+                //.replicas(1)
+                .build();
+    }
+
 }
