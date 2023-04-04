@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class KafkaProducer {
+public record KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaProducer.class);
-    private final KafkaTemplate<String, String> kafkaTemplate;
 
     public void publishMessage(String message) {
         LOGGER.info(String.format("Message sent %s", message));
