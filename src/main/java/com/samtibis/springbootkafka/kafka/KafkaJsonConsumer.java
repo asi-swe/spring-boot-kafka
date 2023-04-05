@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class KafkaJsonConsumer {
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaJsonConsumer.class);
 
-    @KafkaListener(groupId = "my-group",topics = "topic-json")
+    @KafkaListener(groupId = "my-group",topics = "${spring.kafka.topic-json.name}")
     public void consume(User user) {
         LOGGER.info(String.format("Message received -> %s", user.toString()));
     }
